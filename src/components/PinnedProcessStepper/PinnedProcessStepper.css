@@ -1,0 +1,183 @@
+.pps-section,
+.pps-pin-wrapper {
+  --pps-accent: #2563eb;
+  --pps-line: rgba(15, 23, 42, 0.12);
+  --pps-ink: #0f172a;
+  --pps-ink-soft: #475569;
+  --pps-surface: #f8fafc;
+  padding: 80px 0;
+  background: var(--pps-surface);
+}
+
+.pps-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.pps-heading {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 600;
+  color: var(--pps-ink);
+}
+
+/* Pinned variant */
+.pps-pin-wrapper {
+  position: relative;
+  /* Tall enough that scrolling through it takes a while relative to one
+     viewport, giving the pin something to pin through. */
+  height: 320vh;
+}
+
+.pps-pin-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Progress bar */
+.pps-progress {
+  display: flex;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.pps-progress-seg {
+  height: 3px;
+  width: 16px;
+  border-radius: 2px;
+  background: var(--pps-line);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.pps-progress-seg.is-current {
+  width: 32px;
+}
+
+.pps-progress-seg.is-filled {
+  background: var(--pps-accent);
+}
+
+/* Steps */
+.pps-steps {
+  margin-top: 28px;
+}
+
+.pps-row {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--pps-line);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.pps-row.is-last {
+  border-bottom: none;
+}
+
+.pps-row.is-upcoming {
+  opacity: 0.4;
+}
+
+.pps-marker {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pps-surface);
+  border: 1px solid var(--pps-line);
+  color: var(--pps-ink-soft);
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.pps-marker.is-active {
+  background: var(--pps-accent);
+  border-color: var(--pps-accent);
+  color: white;
+}
+
+.pps-marker.is-done {
+  border-color: var(--pps-accent);
+  color: var(--pps-accent);
+}
+
+.pps-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.pps-title {
+  font-weight: 600;
+  color: var(--pps-ink);
+  font-size: 15.5px;
+  line-height: 1.3;
+  transition: font-size 0.35s ease;
+}
+
+.pps-title.is-active {
+  font-size: clamp(19px, 2.4vw, 26px);
+}
+
+/* The accordion trick: animating grid-template-rows between 0fr and 1fr
+   animates a "height: auto" container, which a plain height transition
+   can't do without a fixed target height. */
+.pps-description-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.pps-description-wrap.is-open {
+  grid-template-rows: 1fr;
+}
+
+.pps-description-inner {
+  overflow: hidden;
+}
+
+.pps-description {
+  font-size: 14.5px;
+  color: var(--pps-ink-soft);
+  line-height: 1.6;
+  max-width: 480px;
+  padding-top: 6px;
+}
+
+/* Reduced-motion static fallback */
+.pps-static-steps {
+  margin-top: 48px;
+}
+
+.pps-static-row {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--pps-line);
+}
+
+.pps-static-row.is-last {
+  border-bottom: none;
+}
+
+.pps-static-index {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--pps-accent);
+  margin-bottom: 8px;
+}
+
+.pps-static-title {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--pps-ink);
+}

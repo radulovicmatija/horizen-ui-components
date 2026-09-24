@@ -1,0 +1,300 @@
+/* Theming: override these on a wrapping element to match your brand. */
+.pst-container,
+.pst-mobile-container,
+.pst-static-list {
+  --pst-accent: #2563eb;
+  --pst-line: rgba(15, 23, 42, 0.12);
+  --pst-ink: #0f172a;
+  --pst-ink-soft: #475569;
+}
+
+.pst-container {
+  position: relative;
+  width: 100%;
+}
+
+.pst-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.pst-grid {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 64px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  align-items: center;
+}
+
+.pst-stage-col {
+  max-width: 640px;
+}
+
+/* Progress rail */
+.pst-rail {
+  position: relative;
+  padding-left: 26px;
+}
+
+.pst-rail-track {
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--pst-line);
+}
+
+.pst-rail-fill {
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  width: 1px;
+  height: calc(100% - 12px);
+  background: var(--pst-accent);
+  transform-origin: top;
+}
+
+.pst-rail-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.pst-rail-button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.pst-rail-dot {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--pst-line);
+  transition: all 0.3s ease;
+}
+
+.pst-rail-dot.is-active {
+  width: 11px;
+  height: 11px;
+  margin-left: -3px;
+  background: var(--pst-accent);
+  border: none;
+}
+
+.pst-rail-label {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--pst-ink-soft);
+  transition: color 0.3s ease;
+  font-family: ui-monospace, monospace;
+}
+
+.pst-rail-label.is-active {
+  color: var(--pst-ink);
+}
+
+/* Stage */
+.pst-stage {
+  position: relative;
+  height: min(58vh, 540px);
+  width: 100%;
+}
+
+.pst-stage-frame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.pst-stage-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--pst-line);
+  box-shadow: 0 20px 48px -20px rgba(22, 24, 28, 0.18);
+  object-fit: contain;
+  display: block;
+}
+
+.pst-caption {
+  position: relative;
+  min-height: 52px;
+  margin-top: 24px;
+}
+
+.pst-caption-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 480px;
+  color: var(--pst-ink-soft);
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+  pointer-events: none;
+}
+
+.pst-caption-text.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile pinned variant */
+.pst-mobile-container {
+  position: relative;
+}
+
+.pst-mobile-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pst-mobile-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.pst-mobile-stage {
+  position: relative;
+  height: 52svh;
+  width: 100%;
+}
+
+.pst-mobile-frame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+  pointer-events: none;
+}
+
+.pst-mobile-frame.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pst-mobile-text {
+  position: relative;
+  min-height: 76px;
+  margin-top: 20px;
+}
+
+.pst-mobile-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+  pointer-events: none;
+}
+
+.pst-mobile-caption.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pst-mobile-step-label {
+  font-family: ui-monospace, monospace;
+  font-size: 11.5px;
+  color: var(--pst-accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.pst-mobile-title {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--pst-ink);
+}
+
+.pst-mobile-desc {
+  font-size: 14px;
+  color: var(--pst-ink-soft);
+  line-height: 1.5;
+}
+
+.pst-mobile-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pst-mobile-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--pst-line);
+  transition: all 0.3s ease;
+}
+
+.pst-mobile-dot.is-active {
+  width: 20px;
+  background: var(--pst-accent);
+}
+
+/* Reduced-motion fallback */
+.pst-static-list {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pst-static-item {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.pst-static-image {
+  max-width: 100%;
+  max-height: 520px;
+  border-radius: 8px;
+  border: 1px solid var(--pst-line);
+  box-shadow: 0 20px 48px -20px rgba(22, 24, 28, 0.18);
+  align-self: center;
+}

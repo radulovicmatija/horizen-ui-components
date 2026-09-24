@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
+  <rect width="960" height="600" fill="#eef2ff"/>
+  <rect x="24" y="24" width="912" height="552" rx="12" fill="#ffffff" stroke="#c7d2fe" stroke-width="2"/>
+  <circle cx="120" cy="100" r="28" fill="#2563eb"/>
+  <text x="480" y="320" font-family="ui-monospace, monospace" font-size="120" fill="#2563eb" text-anchor="middle">Step 1</text>
+  <text x="480" y="380" font-family="sans-serif" font-size="20" fill="#64748b" text-anchor="middle">placeholder demo image</text>
+</svg>
